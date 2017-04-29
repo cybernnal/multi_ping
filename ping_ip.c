@@ -107,7 +107,7 @@ static char 	**cp_ip(char **ip)
 
 static void print_stat(char **ip, char **ip2, int *mask)
 {
-	printf("Hostmin: ");
+	printf("\nHostmin: ");
 	print_ip(ip2);
 	printf("\nHostmax: ");
 	print_ip(ip);
