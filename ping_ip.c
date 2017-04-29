@@ -149,8 +149,7 @@ static void		main_loop(int nb_ip, int limit, char **ip, char *prefix, char *ent_
         if (!pid) //if it's the child
         {
 			conc_ip(ip, &ent_ip); // concat the char** ip into a char*
-			command = ft_strjoin(ft_strjoin(prefix, ent_ip), " >/dev/null 2>&1"); // TODO fix leaks
-
+            command = ft_strjoin(ft_strjoin(prefix, ent_ip), " >/dev/null 2>&1"); // TODO fix leaks
             while (ret != 0 && j-- > 0) // try to ping the same ip `j` times
 			{
 				ret = system(command);
@@ -176,7 +175,7 @@ int main (int argc, char ** argv)
     int		        mask = ft_atoi(ft_strdup(ft_strchr(argv[1], '/') + 1)); // get the mask (example: `/24`)
 	int		        *full_mask = get_mask(mask); //convert to real mask (example: 255.255.255.0)
 	int		        nb_ip = (int)pow(2, 32 - mask); // calc number of ip
-	char	        *prefix	= "ping -c 1 -w 1 "; // begin of the shell command
+	char	        *prefix	= "ping -c 1 -W 1 "; // begin of the shell command
 	char	        *ent_ip	= (char*)ft_memalloc(sizeof(char) * 16);
 	struct rlimit   rlp;
 	int		        limit;
