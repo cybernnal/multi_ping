@@ -1,7 +1,10 @@
-cmake_minimum_required(VERSION 3.6)
-project(script)
+cmake_minimum_required(VERSION 2.6)
+project(mping)
 
-set(CMAKE_CXX_STANDARD 11)
+enable_language(C)
+set(CMAKE_C_STANDARD)
+set(CMAKE_C_COMPILER)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native")
 
 set(SOURCE_FILES
     libft/ft_atoi.c
@@ -74,4 +77,6 @@ set(SOURCE_FILES
 
 include_directories(libft)
 
-add_executable(script ${SOURCE_FILES})
+add_executable(mping ${SOURCE_FILES})
+
+target_link_libraries(mping -lm)
